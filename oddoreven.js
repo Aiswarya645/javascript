@@ -1,12 +1,12 @@
 let n=5;
 switch(n%2){
     case 0:
-        console.log(n+ "even");
+        console.log("this is even");
         break;
     case 1:
-        console.log(n +"odd");
+        console.log("this is odd");
         break;
-    case 2:
+    default:
         console.log("invalid");
         
         

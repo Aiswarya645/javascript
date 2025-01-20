@@ -1,5 +1,6 @@
 let n=5;
-switch(n%2){
+switch(n%2)
+{
     case 0:
         console.log("this is even");
         break;

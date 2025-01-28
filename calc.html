@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+         * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  .calculator {
+    background-color: #f2f2f2;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    border: solid 1px #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    margin-top: 40px;
+  }
+  
+  #result{
+      width: 100%;
+      padding: 10px;
+      font-size: 24px;
+      border: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3) inset;
+      border-radius: 5px;
+  }
+  
+  .buttons{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+      margin-top: 20px;
+  }
+  
+  button{
+      padding: 10px;
+      font-size: 24px;
+      border: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+  }
+  
+  button:hover{
+      background-color: #10f4e1;
+  }
+  
+  .clear{
+      background-color: #ff4136;
+      color: #fff;
+  }
+  
+  .number, .decimal{
+      background-color: #3f41d2;
+      color: #333;
+  
+  }
+  
+  .operator{
+      background-color: #04ea04;
+      color: #fff;
+  }
+  
+  .equals{
+      background-color: #ff2b01;
+      grid-row: span 3;
+      color: #fff;
+  }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="result" readonly>
+        <div class="buttons">
+            <button class="clear" onclick="remove()">C</button>
+            <button class="operator" onclick="display('/')">/</button>
+            <button class="operator" onclick="display('*')">*</button>
+            <button class="operator" onclick="display('-')">-</button>
+            <button class="number" onclick="display('7')">7</button>
+            <button class="number" onclick="display('8')">8</button>
+            <button class="number" onclick="display('9')">9</button>
+            <button class="operator" onclick="display('+')">+</button>
+            <button class="number" onclick="display('4')">4</button>
+            <button class="number" onclick="display('5')">5</button>
+            <button class="number" onclick="display('6')">6</button>
+            <button class="equals" onclick="calculate()">=</button>
+            <button class="number" onclick="display('1')">1</button>
+            <button class="number" onclick="display('2')">2</button>
+            <button class="number" onclick="display('3')">3</button>
+            <button class="number" onclick="display('0')">0</button>
+            <button class="decimal" onclick="display('.')">.</button>
+        </div>
+    </div>
+    <script>
+      
+        let display=(x)=>{
+            document.getElementById('result').value+=x;
+        }
+
+        let calculate=()=>{
+            let p=document.getElementById('result').value;
+
+            if(!p){
+                alert("enter a number");
+            }
+            
+            else{
+                let s=eval(p)
+                document.getElementById('result').value=s;
+            }     
+        }
+
+
+        let remove=()=>{
+            document.getElementById('result').value="";
+        }
+        
+
+    </script>
+</body>
+</html>
+

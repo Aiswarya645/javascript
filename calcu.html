@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <h2 id="result"></h2>
+
+    <button style="background-color: rgb(208, 200, 43);" onclick="calculation('add')">+</button>
+    <button style="background-color: rgb(165, 165, 42);" onclick="calculation('sub')">-</button>
+    <button style="background-color: rgb(142, 165, 42);" onclick="calculation('mul')">*</button>
+    <button style="background-color: rgb(142, 165, 42);" onclick="calculation('div')">/</button>
+
+    <script>
+        let calculation=(x)=>{
+            let result;
+            let num1=parseInt(document.getElementById("num1").value)
+            let num2=parseInt(document.getElementById("num2").value)
+
+            if(!num1 || !num2){
+                alert("enterb")
+            }
+            else{
+                if(x=="add"){
+                    result=num1+num2;
+
+                }
+            else if(x=="sub"){
+                result=num1-num2
+            }
+            else if(x=="mul"){
+                result=num1*num2
+            }
+            else if(x=="div"){
+                result=num1/num2
+            }
+
+
+            }
+            document.getElementById("result").innerHTML=result;
+        }
+     </script>   
+
+</body>
+</html>

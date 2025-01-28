@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+    <style>
+        .container{
+            width: 300px;
+            height: 400px;
+            background-color: yellow;
+            border: solid black;
+        }
+        .heading{
+            text-align: center;
+        }
+        .heading h4{
+            text-align: center;
+        }
+        .data input{
+            margin: 15px;
+        }
+        .data{
+            text-align: center;
+        }
+        .one{
+            background-color: rgb(208, 107, 34);
+        }
+        .two{
+            background-color: chocolate;
+        }
+    </style>
+</head>
+<body>
+    <div class="BMI Calculator">
+      <h2>BMI Calculator</h2>
+    <div class="container">
+        <h4>Metric Units</h4>
+        <div class="data">
+        <label>Height</label>
+        <input type="number"id="num1"><br>
+        <label>Weight</label>
+        <input type="number" id="num2">
+        <button class="one" onclick="calculate()">Calculate</button>
+        <button class="two" onclick="clearRow()">Clear</button>
+
+        <p id="result"></p>
+
+        </div>
+
+
+      <h3 id="display"></h3>
+
+    </div>
+    </div>
+    <script>
+        let calculate=()=>{
+
+        
+        let height=parseFloat(document.getElementById("num1").value)
+        let weight=parseFloat(document.getElementById("num2").value)
+        if(height>0&&weight>0)
+        {
+            let heightmeter=height/100;
+            let BMI= (weight/(heightmeter*heightmeter));
+            console.log(BMI);
+            document.getElementById("result").innerHTML = `BMI ${BMI}`;
+
+            if (BMI < 18.5) {
+                    document.getElementById('display').innerHTML= 'under weight'
+                } else if (BMI >= 18.5 && BMI < 24.9) {
+                    
+                    document.getElementById('display').innerHTML= 'Normal'
+                    
+                } else if (BMI >= 25 && BMI < 29.9) {
+                    document.getElementById('display').innerHTML= 'over weight'
+                } else {
+                    document.getElementById('display').innerHTML= 'obesity'
+                }
+            
+     
+        }
+        else{
+            document.getElementById("result").innerHTML = "invalid numbers.";
+        }
+        };
+    let clearRow=()=>{
+            document.getElementById("num1").value = "";
+            document.getElementById("num2").value = "";
+            document.getElementById("result").value = "";
+    };
+    
+   
+    </script>
+    
+</body>
+</html>

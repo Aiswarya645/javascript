@@ -4,10 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO</title>
+    <style>
+        .container{
+            background-color: yellowgreen;
+            width: 300px;
+            height: 300px;
+            margin: auto;
+
+        }
+        .body{
+            background-color: rgb(246, 246, 132);
+        }
+    h2{
+        align-items: center;
+        margin: auto;
+    }
+    li{
+           background-color: rgb(207, 193, 220);
+           width: 300px;
+           height: 50px;
+           margin: auto;
+           text-align: center;
+           padding-top: 20px;
+           list-style-type: none;
+    }
+    .tasks{
+        list-style-type: none;
+    }
+    button{
+        background-color: red;
+    }
+    </style>
 </head>
 <body>
-    <input type="text" id="num1">
+    <div class="container">
+        <h2>ToDo</h2>
+    <input type="text" id="input"placeholder="enter input">
+    <button onclick="addTask()">Add</button>
+    <ul id="tasks"></ol>
     
-    
+    </div>
+    <script>
+        function addTask(){
+            let inputTask=document.getElementById('input').value;
+            let list=document.createElement('li');
+            
+            let text=document.createTextNode(inputTask);
+            list.appendChild(text);
+            let del=document.createElement('button');
+            let deltext=document.createTextNode('delete');
+            del.appendChild(deltext);
+            list.appendChild(del);
+            document.body.append(list);
+            del.addEventListener('click',()=>{
+                       list.remove()
+            });
+
+
+
+        }
+        document.getElementById('input').value = ""; 
+         
+    </script>
 </body>
 </html>
